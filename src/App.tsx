@@ -11,7 +11,7 @@ function App() {
 	return (
 		<div className="App">
 			<a id="jobs"></a>
-			<h2>Get a Job</h2>
+			<h2>Developer Jobs</h2>
 			<main className="content">
 				{jobs.length === 0 ? (
 					<PageLoadingArea />
