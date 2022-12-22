@@ -45,6 +45,10 @@ export const getSkillTotals = (jobs: IJob[]) => {
 
 export const getMinimalAmericanMonthDay = (isoDate: string) => {
 	const date = new Date(isoDate);
-	const dateText = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+	let dateText = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+	// fix "Dec 6" to "Dec 06"
+	if (dateText.length === 5) {
+		dateText = dateText.substring(0, 4) + '0' + dateText.substring(4, 5);
+	}
 	return dateText;
 }
