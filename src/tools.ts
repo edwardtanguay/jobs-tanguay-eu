@@ -42,3 +42,9 @@ export const getSkillTotals = (jobs: IJob[]) => {
 	skillTotals.sort((a: ISkillTotal, b: ISkillTotal) =>  a.total > b.total ? -1 : 1);
 	return skillTotals;
 }
+
+export const getMinimalAmericanMonthDay = (isoDate: string) => {
+	const date = new Date(isoDate);
+	const dateText = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+	return dateText;
+}

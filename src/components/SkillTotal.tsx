@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { AppContext } from '../AppContext';
 import { InfoBar } from '../components/InfoBar';
 import { ISkillTotal } from '../interfaces';
+import * as tools from '../tools';
 
 interface IProps {
 	skillTotal: ISkillTotal;
@@ -31,7 +32,7 @@ export const SkillTotal = ({ skillTotal }: IProps) => {
 						{skillTotal.jobs.map((job) => {
 							return (
 								<div className="job">
-									<span className="date">{job.publicationDate}</span> <a href={job.url} target="_blank">{job.title}</a>
+									<span className="date">{tools.getMinimalAmericanMonthDay(job.publicationDate)}</span> <a href={job.url} target="_blank">{job.title}</a>
 								</div>
 							);
 						})}
