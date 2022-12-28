@@ -13,6 +13,7 @@ interface IAppContext {
 	searchText: string;
 	setSearchText: (text: string) => void;
 	handleSearchTextChange: (searchText: string) => void;
+	handleClearSearch: () => void;
 }
 
 interface IAppProvider {
@@ -108,6 +109,12 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 		setSearchText(searchText);
 	};
 
+	const handleClearSearch = () => {
+		setSearchText('');
+		setJobs([...originalJobs]);
+		setSkillTotals([...originalSkillTotals]);
+	}
+
 	return (
 		<AppContext.Provider
 			value={{
@@ -119,6 +126,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				searchText,
 				setSearchText,
 				handleSearchTextChange,
+				handleClearSearch
 			}}
 		>
 			{children}

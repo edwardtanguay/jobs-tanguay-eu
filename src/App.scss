@@ -26,14 +26,30 @@ body {
 			text-shadow: 1px 1px 5px #1e1e1e;
 		}
 
-		input {
-			height: fit-content;
-			font-size: 2rem;
-			margin-top: 2rem;
-			border-radius: .3rem;
+		.inputArea {
+			display: flex;
+			gap: 1rem;
 
-			&::placeholder {
-				color: #bbb;
+			.clearSearch {
+				margin-top: 2.2rem;
+				font-size: 2.2rem;
+				font-weight:bold;
+				color: #292929;
+				&:hover {
+					text-shadow: 1px 1px 14px #555;
+				}
+				cursor:pointer;
+			}
+
+			input {
+				height: fit-content;
+				font-size: 2rem;
+				margin-top: 2rem;
+				border-radius: .3rem;
+
+				&::placeholder {
+					color: #bbb;
+				}
 			}
 		}
 	}

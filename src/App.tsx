@@ -6,21 +6,36 @@ import { SkillsArea } from './components/SkillsArea';
 import { PageLoadingArea } from './components/PageLoadingArea';
 
 function App() {
-	const { originalJobs, searchText, handleSearchTextChange } = useContext(AppContext);
+	const {
+		originalJobs,
+		searchText,
+		handleSearchTextChange,
+		handleClearSearch,
+	} = useContext(AppContext);
 
 	return (
 		<div className="App">
 			<a id="jobs"></a>
 			<div className="topArea">
 				<h2>Developer Jobs</h2>
-				<input
-					value={searchText}
-					className="global_show_computer"
-					type="text"
-					autoFocus
-					onChange={(e) => handleSearchTextChange(e.target.value)}
-					placeholder="search"
-				/>
+				<div className="inputArea">
+					{searchText.trim() !== '' && (
+						<div
+							className="clearSearch"
+							onClick={handleClearSearch}
+						>
+							X
+						</div>
+					)}
+					<input
+						value={searchText}
+						className="global_show_computer"
+						type="text"
+						autoFocus
+						onChange={(e) => handleSearchTextChange(e.target.value)}
+						placeholder="search"
+					/>
+				</div>
 			</div>
 			<main className="content">
 				{originalJobs.length === 0 ? (
