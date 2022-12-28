@@ -32,7 +32,8 @@ export const getSkillTotals = (jobs: IJob[]) => {
 					skill,
 					total: 1,
 					isOpen: false,
-					jobs: jobs.filter(job => job.skills.map(m=> m.idCode).includes(skill.idCode))
+					jobs: jobs.filter(job => job.skills.map(m => m.idCode).includes(skill.idCode)),
+					bulkSearch: ''
 				});
 			} else {
 				existingSkillTotal.total++;
