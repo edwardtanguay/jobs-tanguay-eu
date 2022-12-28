@@ -7,6 +7,7 @@ export interface IJob {
 	skillList: string;
 	skills: ISkill[];
 	publicationDate: string;
+	bulkSearch: string;
 }
 
 export interface ISkill {

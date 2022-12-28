@@ -35,13 +35,22 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 	useEffect(() => {
 		setTimeout(() => {
 			(async () => {
-
 				// build jobs
 				const jobsResponse = await fetch(jobUrl);
-				const _jobs = await jobsResponse.json();
+				const _jobs: IJob[] = await jobsResponse.json();
+				// sort jobs by newest first
 				_jobs.sort((a: IJob, b: IJob) =>
 					a.publicationDate > b.publicationDate ? -1 : 1
 				);
+				// create bulk search
+				const sep = '|';
+				_jobs.forEach((m) => {
+					const bulkSearch = m.title + sep + m.company;
+					m.bulkSearch = bulkSearch;
+				});
+
+				// build original jobs
+				const _originalJobs: IJob[] = [..._jobs];
 
 				// build skills
 				const skillsResponse = await axios.get(skillsUrl);
@@ -54,7 +63,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				// build skillTotals
 				const _skillTotals = tools.getSkillTotals(_jobs);
 
-				setOriginalJobs(_jobs);
+				setOriginalJobs(_originalJobs);
 				setJobs(_jobs);
 				setSkills(_skills);
 				setSkillTotals(_skillTotals);
@@ -73,10 +82,12 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 	};
 
 	const handleSearchTextChange = (searchText: string) => {
-		const _jobs = originalJobs.filter(m => m.title.toLowerCase().includes(searchText.toLowerCase()));
-		setSearchText(searchText);
+		const _jobs = originalJobs.filter((m) =>
+			m.bulkSearch.toLowerCase().includes(searchText.toLowerCase())
+		);
 		setJobs(_jobs);
-	}
+		setSearchText(searchText);
+	};
 
 	return (
 		<AppContext.Provider
@@ -88,7 +99,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				toggleSkillTotalIsOpen,
 				searchText,
 				setSearchText,
-				handleSearchTextChange
+				handleSearchTextChange,
 			}}
 		>
 			{children}

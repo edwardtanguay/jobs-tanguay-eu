@@ -95,6 +95,12 @@ body {
 
 			.show_computer {
 				display: block;
+				.theNumber {
+					color: $title_color;
+				}
+				.searching {
+					color: $title_color;
+				}
 			}
 
 			display: grid;
