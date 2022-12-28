@@ -28,6 +28,12 @@ body {
 
 		input {
 			height: fit-content;
+			font-size: 2rem;
+			margin-top: 2rem;
+			border-radius: .3rem;
+			&::placeholder {
+				color: #bbb;
+			}
 		}
 	}
 

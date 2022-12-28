@@ -13,7 +13,12 @@ function App() {
 			<a id="jobs"></a>
 			<div className="topArea">
 				<h2>Developer Jobs</h2>
-				<input value={searchText} type="text" onChange={(e) => setSearchText(e.target.value)} />
+				<input
+					value={searchText}
+					type="text"
+					onChange={(e) => setSearchText(e.target.value)}
+					placeholder="search"
+				/>
 			</div>
 			<main className="content">
 				{jobs.length === 0 ? (
