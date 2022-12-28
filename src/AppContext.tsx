@@ -9,6 +9,8 @@ interface IAppContext {
 	skillTotals: ISkillTotal[];
 	handleInfoBarToggle: (skill: ISkill) => void;
 	toggleSkillTotalIsOpen: (skillTotal: ISkillTotal) => void;
+	searchText: string;
+	setSearchText: (text: string) => void;
 }
 
 interface IAppProvider {
@@ -25,6 +27,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 	const [jobs, setJobs] = useState<IJob[]>([]);
 	const [skills, setSkills] = useState<ISkill[]>([]);
 	const [skillTotals, setSkillTotals] = useState<ISkillTotal[]>([]);
+	const [searchText, setSearchText] = useState('');
 
 	useEffect(() => {
 		setTimeout(() => {
@@ -72,6 +75,8 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				skillTotals,
 				handleInfoBarToggle,
 				toggleSkillTotalIsOpen,
+				searchText,
+				setSearchText
 			}}
 		>
 			{children}

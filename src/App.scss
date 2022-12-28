@@ -14,11 +14,21 @@ body {
 	padding: 0 1rem;
 	min-width: 310px;
 
-	h2 {
-		color: #444;
-		font-weight: bold;
-		margin: 1rem 0 0 0;
-		text-shadow: 1px 1px 5px #1e1e1e;
+	.topArea {
+		display: flex;
+		justify-content: space-between;
+		gap: 1;
+
+		h2 {
+			color: #444;
+			font-weight: bold;
+			margin: 1rem 0 0 0;
+			text-shadow: 1px 1px 5px #1e1e1e;
+		}
+
+		input {
+			height: fit-content;
+		}
 	}
 
 	h3 {
