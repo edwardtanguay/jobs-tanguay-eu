@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { createContext } from 'react';
 import axios from 'axios';
-import { IJob, ISkill, ISkillTotal } from './interfaces';
+import { IJob, ISkill, IJobSkill, ISkillTotal } from './interfaces';
 import * as tools from './tools';
 
 interface IAppContext {
@@ -91,8 +91,8 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 		setSkillTotals([...skillTotals]);
 	};
 
-	const handleInfoBarToggle = (skill: ISkill) => {
-		skill.isOpen = !skill.isOpen;
+	const handleInfoBarToggle = (jobSkill: IJobSkill) => {
+		jobSkill.isOpen = !jobSkill.isOpen;
 		setSkills([...skills]);
 	};
 

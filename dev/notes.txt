@@ -1,3 +1,1 @@
-- .. fix double-open issue
-- add " of total"
-- add x to clear
+- .. add x to clear
