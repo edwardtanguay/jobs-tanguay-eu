@@ -31,6 +31,7 @@ body {
 			font-size: 2rem;
 			margin-top: 2rem;
 			border-radius: .3rem;
+
 			&::placeholder {
 				color: #bbb;
 			}
@@ -95,9 +96,11 @@ body {
 
 			.show_computer {
 				display: block;
+
 				.theNumber {
 					color: $title_color;
 				}
+
 				.searching {
 					color: $title_color;
 				}
@@ -216,6 +219,14 @@ body {
 		}
 
 		section.skillsArea {
+
+			.theNumber {
+				color: $title_color;
+			}
+
+			.searching {
+				color: $title_color;
+			}
 
 			.skills {
 				.skillWrapper {
@@ -342,16 +353,16 @@ body {
 }
 
 
-	// smartphone
-	@media (max-width: 879px) {
-		.global_show_computer {
-			display: none;
-		}
+// smartphone
+@media (max-width: 879px) {
+	.global_show_computer {
+		display: none;
 	}
+}
 
-	// computer
-	@media (min-width: 880px) {
-		.global_show_computer {
-			display: block;
-		}
+// computer
+@media (min-width: 880px) {
+	.global_show_computer {
+		display: block;
 	}
+}
