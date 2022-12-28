@@ -8,7 +8,7 @@ interface IAppContext {
 	originalJobs: IJob[];
 	jobs: IJob[];
 	skillTotals: ISkillTotal[];
-	handleInfoBarToggle: (skill: ISkill) => void;
+	handleInfoBarToggle: (jobSkill: IJobSkill) => void;
 	toggleSkillTotalIsOpen: (skillTotal: ISkillTotal) => void;
 	searchText: string;
 	setSearchText: (text: string) => void;
