@@ -42,16 +42,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				_jobs.sort((a: IJob, b: IJob) =>
 					a.publicationDate > b.publicationDate ? -1 : 1
 				);
-				// create bulk search
-				const sep = '|';
-				_jobs.forEach((m) => {
-					const bulkSearch = m.title + sep + m.company;
-					m.bulkSearch = bulkSearch;
-				});
-
-				// build original jobs
-				const _originalJobs: IJob[] = [..._jobs];
-
+				
 				// build skills
 				const skillsResponse = await axios.get(skillsUrl);
 				const _skills: ISkill[] = skillsResponse.data;
@@ -59,6 +50,17 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				_skills.forEach((_skill) => {
 					_skill.isOpen = false;
 				});
+
+				// create bulk search
+				const sep = '|';
+				_jobs.forEach((m) => {
+					const separatedSkillsText = m.skills.map(m => m.name + sep + m.description).join(sep);
+					const bulkSearch = m.title + sep + m.company + sep + separatedSkillsText;
+					m.bulkSearch = bulkSearch;
+				});
+
+				// build original jobs
+				const _originalJobs: IJob[] = [..._jobs];
 
 				// build skillTotals
 				const _skillTotals = tools.getSkillTotals(_jobs);

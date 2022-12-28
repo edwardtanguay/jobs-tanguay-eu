@@ -14,7 +14,7 @@ export const JobsArea = () => {
 					{searchText.trim() === '' ? (
 						<>Total jobs: <span className="theNumber">{jobs.length}</span></>
 					) : (
-							<>Jobs that contain <span className="searching">{searchText.trim()}</span>: <span className="theNumber">{jobs.length}</span></>
+							<>Jobs that contain <span className="searching">{searchText.trim()}</span> = <span className="theNumber">{jobs.length}</span></>
 					)}
 				</h3>
 				<div className="skillsLink">

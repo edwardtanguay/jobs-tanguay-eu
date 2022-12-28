@@ -1,5 +1,8 @@
 - .. create bulkSearch for jobs
+	- .. add names of skills
 - also search skills
 - change "There are 30 jobs" to
 	- Total jobs: 30
 	- Jobs containing "react": 22
+
+- focus for computer layout but not smartphone
