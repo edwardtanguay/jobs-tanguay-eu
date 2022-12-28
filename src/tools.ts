@@ -1,4 +1,4 @@
-import { IJob, ISkill, ISkillTotal } from './interfaces';
+import { IJob, ISkill, IJobSkill, ISkillTotal } from './interfaces';
 
 /**
  * expandSkillsInJobs fills skills property from skillList
@@ -15,7 +15,8 @@ export const expandSkillsInJobs = (jobs: IJob[], skills: ISkill[]) => {
 				(skill: ISkill) => skill.idCode === idCode
 			);
 			if (skill) {
-				job.skills.push(skill);
+				const jobSkill = {...skill, isOpen: false};
+				job.skills.push(jobSkill);
 			}
 		});
 	});

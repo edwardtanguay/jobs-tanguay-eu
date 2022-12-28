@@ -1,10 +1,3 @@
-- .. create bulkSearch for jobs
-	- x add names of skills
-	- .. also search skills
-- change "There are 30 jobs" to
-	- Total jobs: 30
-	- Jobs containing "react": 22
-
-- fix double-open issue
-
-- focus for computer layout but not smartphone
+- .. fix double-open issue
+- add " of total"
+- add x to clear

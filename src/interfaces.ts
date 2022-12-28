@@ -5,7 +5,7 @@ export interface IJob {
 	company: string;
 	description: string;
 	skillList: string;
-	skills: ISkill[];
+	skills: IJobSkill[];
 	publicationDate: string;
 	bulkSearch: string;
 }
@@ -17,6 +17,9 @@ export interface ISkill {
 	description: string;
 	lookupGoogleLink: string;
 	lookupYouTubeLink: string;
+}
+
+export interface IJobSkill extends ISkill {
 	isOpen: boolean;
 }
 

@@ -49,9 +49,9 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				const skillsResponse = await axios.get(skillsUrl);
 				const _skills: ISkill[] = skillsResponse.data;
 				tools.expandSkillsInJobs(_jobs, _skills);
-				_skills.forEach((_skill) => {
-					_skill.isOpen = false;
-				});
+				// _skills.forEach((_skill) => {
+				// 	_skill.isOpen = false;
+				// });
 
 				// create bulk search
 				_jobs.forEach((m) => {
