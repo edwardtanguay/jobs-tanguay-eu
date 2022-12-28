@@ -25,4 +25,5 @@ export interface ISkillTotal {
 	total: number;
 	isOpen: boolean;
 	jobs: IJob[];
+	bulkSearch: string;
 }

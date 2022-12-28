@@ -22,6 +22,7 @@ interface IAppProvider {
 const jobUrl = 'https://edwardtanguay.vercel.app/share/jobs.json';
 const skillsUrl = 'https://edwardtanguay.vercel.app/share/skills.json';
 const mockApiWaitSeconds = 1;
+const sep = '|';
 
 export const AppContext = createContext<IAppContext>({} as IAppContext);
 
@@ -30,6 +31,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 	const [jobs, setJobs] = useState<IJob[]>([]);
 	const [skills, setSkills] = useState<ISkill[]>([]);
 	const [skillTotals, setSkillTotals] = useState<ISkillTotal[]>([]);
+	const [originalSkillTotals, setOriginalSkillTotals] = useState<ISkillTotal[]>([]);
 	const [searchText, setSearchText] = useState('');
 
 	useEffect(() => {
@@ -42,7 +44,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				_jobs.sort((a: IJob, b: IJob) =>
 					a.publicationDate > b.publicationDate ? -1 : 1
 				);
-				
+
 				// build skills
 				const skillsResponse = await axios.get(skillsUrl);
 				const _skills: ISkill[] = skillsResponse.data;
@@ -52,10 +54,12 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				});
 
 				// create bulk search
-				const sep = '|';
 				_jobs.forEach((m) => {
-					const separatedSkillsText = m.skills.map(m => m.name + sep + m.description).join(sep);
-					const bulkSearch = m.title + sep + m.company + sep + separatedSkillsText;
+					const separatedSkillsText = m.skills
+						.map((m) => m.name + sep + m.description)
+						.join(sep);
+					const bulkSearch =
+						m.title + sep + m.company + sep + separatedSkillsText;
 					m.bulkSearch = bulkSearch;
 				});
 
@@ -63,11 +67,20 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				const _originalJobs: IJob[] = [..._jobs];
 
 				// build skillTotals
-				const _skillTotals = tools.getSkillTotals(_jobs);
+				const _skillTotals: ISkillTotal[] = tools.getSkillTotals(_jobs);
+				_skillTotals.forEach((m) => {
+					const bulkSearch =
+						m.skill.name + sep + m.skill.description;
+					m.bulkSearch = bulkSearch;
+				});
+
+				// build original skillTotals
+				const _originalSkillTotals = [..._skillTotals];
 
 				setOriginalJobs(_originalJobs);
 				setJobs(_jobs);
 				setSkills(_skills);
+				setOriginalSkillTotals(_originalSkillTotals);
 				setSkillTotals(_skillTotals);
 			})();
 		}, mockApiWaitSeconds * 1000);
@@ -87,7 +100,11 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 		const _jobs = originalJobs.filter((m) =>
 			m.bulkSearch.toLowerCase().includes(searchText.toLowerCase())
 		);
+		const _skillTotals = originalSkillTotals.filter((m) =>
+			m.bulkSearch.toLowerCase().includes(searchText.toLowerCase())
+		);
 		setJobs(_jobs);
+		setSkillTotals(_skillTotals);
 		setSearchText(searchText);
 	};
 

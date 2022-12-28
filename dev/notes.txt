@@ -5,4 +5,6 @@
 	- Total jobs: 30
 	- Jobs containing "react": 22
 
+- fix double-open issue
+
 - focus for computer layout but not smartphone
