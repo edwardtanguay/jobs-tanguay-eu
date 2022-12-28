@@ -6,7 +6,7 @@ import { SkillsArea } from './components/SkillsArea';
 import { PageLoadingArea } from './components/PageLoadingArea';
 
 function App() {
-	const { jobs, searchText, setSearchText } = useContext(AppContext);
+	const { jobs, searchText, handleSearchTextChange } = useContext(AppContext);
 
 	return (
 		<div className="App">
@@ -16,7 +16,7 @@ function App() {
 				<input
 					value={searchText}
 					type="text"
-					onChange={(e) => setSearchText(e.target.value)}
+					onChange={(e) => handleSearchTextChange(e.target.value)}
 					placeholder="search"
 				/>
 			</div>

@@ -11,6 +11,7 @@ interface IAppContext {
 	toggleSkillTotalIsOpen: (skillTotal: ISkillTotal) => void;
 	searchText: string;
 	setSearchText: (text: string) => void;
+	handleSearchTextChange: (searchText: string) => void;
 }
 
 interface IAppProvider {
@@ -68,6 +69,10 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 		setSkills([...skills]);
 	};
 
+	const handleSearchTextChange = (searchText: string) => {
+		setSearchText(searchText);
+	}
+
 	return (
 		<AppContext.Provider
 			value={{
@@ -76,7 +81,8 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				handleInfoBarToggle,
 				toggleSkillTotalIsOpen,
 				searchText,
-				setSearchText
+				setSearchText,
+				handleSearchTextChange
 			}}
 		>
 			{children}
