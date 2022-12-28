@@ -15,7 +15,9 @@ function App() {
 				<h2>Developer Jobs</h2>
 				<input
 					value={searchText}
+					className="global_show_computer"
 					type="text"
+					autoFocus
 					onChange={(e) => handleSearchTextChange(e.target.value)}
 					placeholder="search"
 				/>

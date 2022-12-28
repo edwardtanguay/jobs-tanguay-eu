@@ -340,3 +340,18 @@ body {
 		}
 	}
 }
+
+
+	// smartphone
+	@media (max-width: 879px) {
+		.global_show_computer {
+			display: none;
+		}
+	}
+
+	// computer
+	@media (min-width: 880px) {
+		.global_show_computer {
+			display: block;
+		}
+	}
