@@ -1,0 +1,1 @@
+- when click x, then programmatically focus search text
