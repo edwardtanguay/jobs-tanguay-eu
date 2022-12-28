@@ -31,7 +31,7 @@ export const SkillTotal = ({ skillTotal }: IProps) => {
 					<div className="subJobList">
 						{skillTotal.jobs.map((job) => {
 							return (
-								<div className="job">
+								<div className="job" key={job.id}>
 									<span className="date">{tools.getMinimalAmericanMonthDay(job.publicationDate)}</span> <a href={job.url} target="_blank">{job.title}</a>
 								</div>
 							);

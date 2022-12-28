@@ -5,6 +5,7 @@ import { IJob, ISkill, ISkillTotal } from './interfaces';
 import * as tools from './tools';
 
 interface IAppContext {
+	originalJobs: IJob[];
 	jobs: IJob[];
 	skillTotals: ISkillTotal[];
 	handleInfoBarToggle: (skill: ISkill) => void;
@@ -25,6 +26,7 @@ const mockApiWaitSeconds = 1;
 export const AppContext = createContext<IAppContext>({} as IAppContext);
 
 export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
+	const [originalJobs, setOriginalJobs] = useState<IJob[]>([]);
 	const [jobs, setJobs] = useState<IJob[]>([]);
 	const [skills, setSkills] = useState<ISkill[]>([]);
 	const [skillTotals, setSkillTotals] = useState<ISkillTotal[]>([]);
@@ -52,6 +54,7 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 				// build skillTotals
 				const _skillTotals = tools.getSkillTotals(_jobs);
 
+				setOriginalJobs(_jobs);
 				setJobs(_jobs);
 				setSkills(_skills);
 				setSkillTotals(_skillTotals);
@@ -70,12 +73,15 @@ export const AppProvider: React.FC<IAppProvider> = ({ children }) => {
 	};
 
 	const handleSearchTextChange = (searchText: string) => {
+		const _jobs = originalJobs.filter(m => m.title.toLowerCase().includes(searchText.toLowerCase()));
 		setSearchText(searchText);
+		setJobs(_jobs);
 	}
 
 	return (
 		<AppContext.Provider
 			value={{
+				originalJobs,
 				jobs,
 				skillTotals,
 				handleInfoBarToggle,

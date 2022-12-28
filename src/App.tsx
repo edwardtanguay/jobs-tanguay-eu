@@ -6,7 +6,7 @@ import { SkillsArea } from './components/SkillsArea';
 import { PageLoadingArea } from './components/PageLoadingArea';
 
 function App() {
-	const { jobs, searchText, handleSearchTextChange } = useContext(AppContext);
+	const { originalJobs, searchText, handleSearchTextChange } = useContext(AppContext);
 
 	return (
 		<div className="App">
@@ -21,7 +21,7 @@ function App() {
 				/>
 			</div>
 			<main className="content">
-				{jobs.length === 0 ? (
+				{originalJobs.length === 0 ? (
 					<PageLoadingArea />
 				) : (
 					<>

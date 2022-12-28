@@ -18,7 +18,7 @@ export const SkillsArea = () => {
 			<div className="skills">
 				{skillTotals.map((skillTotal) => {
 					return (
-						<SkillTotal skillTotal={skillTotal}/>
+						<SkillTotal key={skillTotal.skill.idCode} skillTotal={skillTotal}/>
 					);
 				})}
 			</div>
