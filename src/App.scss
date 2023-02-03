@@ -33,11 +33,13 @@ body {
 			.clearSearch {
 				margin-top: 2.2rem;
 				font-size: 2.2rem;
-				font-weight:bold;
+				font-weight: bold;
 				color: #292929;
+
 				&:hover {
 					text-shadow: 1px 1px 14px #555;
 				}
+
 				cursor:pointer;
 			}
 
@@ -113,12 +115,23 @@ body {
 			.show_computer {
 				display: block;
 
-				.theNumber {
-					color: $title_color;
-				}
+				.jobHeaderWrapper {
+					display: flex;
+					justify-content: space-between;
 
-				.searching {
-					color: $title_color;
+					.totalJobs {
+						.theNumber {
+							color: $title_color;
+						}
+
+						.searching {
+							color: $title_color;
+						}
+					}
+
+					.infoMessage {
+						color: red;
+					}
 				}
 			}
 

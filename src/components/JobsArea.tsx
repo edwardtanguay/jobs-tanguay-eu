@@ -12,7 +12,10 @@ export const JobsArea = () => {
 				<h3 className="show_smartphone">{jobs.length} jobs</h3>
 				<h3 className="show_computer">
 					{searchText.trim() === '' ? (
-						<>Total jobs: <span className="theNumber">{jobs.length}</span></>
+						<div className="jobHeaderWrapper">
+						<div className="totalJobs">Total jobs: <span className="theNumber">{jobs.length}</span></div>	
+						<div className="infoMessage">nnn</div>
+						</div>
 					) : (
 							<>Jobs that contain <span className="searching">{searchText.trim()}</span> = <span className="theNumber">{jobs.length}</span></>
 					)}
