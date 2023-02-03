@@ -130,7 +130,14 @@ body {
 					}
 
 					.infoMessage {
-						color: red;
+						font-weight: normal;
+						font-size: .8rem;
+						width: 25rem;
+						text-align: right;
+						font-style: italic;
+						strong {
+							color: rgb(145, 122, 80);
+						}
 					}
 				}
 			}
