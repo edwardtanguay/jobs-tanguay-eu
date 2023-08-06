@@ -19,8 +19,11 @@ export const Job = ({ job }: IProps) => {
 					</a>
 				</div>
 				<div className="company">{job.company}</div>
-				<div className="publicationDate">
-					Posted: {job.publicationDate}
+				<div className="bottomRow">
+					<div className="publicationDate">
+						Posted: {job.publicationDate}
+					</div>
+					<div className='toggle'>closed</div>
 				</div>
 			</div>
 			<div className="skills">

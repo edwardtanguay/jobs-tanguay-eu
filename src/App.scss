@@ -135,6 +135,7 @@ body {
 						width: 25rem;
 						text-align: right;
 						font-style: italic;
+
 						strong {
 							color: rgb(145, 122, 80);
 						}
@@ -193,7 +194,7 @@ body {
 						padding: .8rem;
 						border-radius: .5rem;
 						margin-bottom: 1rem;
-						max-width: 30rem;
+						max-width: 40rem;
 
 						.title {
 							font-size: 1.3rem;
@@ -213,9 +214,15 @@ body {
 							font-style: italic;
 						}
 
-						.publicationDate {
-							color: rgb(197, 197, 128);
-							margin-top: .5rem;
+						.bottomRow {
+							display: flex;
+							justify-content: space-between;
+							align-items: flex-end;
+
+							.publicationDate {
+								color: rgb(197, 197, 128);
+								margin-top: .5rem;
+							}
 						}
 
 					}
