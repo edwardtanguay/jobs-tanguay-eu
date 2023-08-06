@@ -223,6 +223,13 @@ body {
 								color: rgb(197, 197, 128);
 								margin-top: .5rem;
 							}
+							.toggle {
+								color: #888;
+								cursor: pointer;
+								&:hover {
+									color: #bbb;
+								}
+							}
 						}
 
 					}

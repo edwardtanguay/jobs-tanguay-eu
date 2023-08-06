@@ -3,6 +3,7 @@ import { AppContext } from '../AppContext';
 import React from 'react';
 import { IJob } from "../interfaces";
 import { InfoBar } from '../components/InfoBar';
+import { ImInfo } from 'react-icons/im';
 
 interface IProps {
 	job: IJob;
@@ -23,7 +24,7 @@ export const Job = ({ job }: IProps) => {
 					<div className="publicationDate">
 						Posted: {job.publicationDate}
 					</div>
-					<div className='toggle'>closed</div>
+					<div className='toggle'><ImInfo/></div>
 				</div>
 			</div>
 			<div className="skills">
