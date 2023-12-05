@@ -14,7 +14,7 @@ export const JobsArea = () => {
 					{searchText.trim() === '' ? (
 						<div className="jobHeaderWrapper">
 						<div className="totalJobs">Total jobs: <span className="theNumber">{jobs.length}</span></div>	
-						<div className="infoMessage">Note that <strong>HTML</strong>, <strong>CSS</strong> and <strong>JavaScript</strong> are not listed on this site since they are generally assumed skills for most developer jobs.</div>
+						<div className="infoMessage">Note that <strong>HTML</strong>, <strong>CSS</strong> and <strong>JavaScript</strong> are not listed on this site since they are generally assumed to be skills for developer jobs.</div>
 						</div>
 					) : (
 							<>Jobs that contain <span className="searching">{searchText.trim()}</span> = <span className="theNumber">{jobs.length}</span></>
